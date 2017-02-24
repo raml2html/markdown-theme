@@ -1,6 +1,6 @@
-# raml2html markdown template
+# raml2html markdown theme
 
-A raml2html template for rendering RAML to Markdown.
+A raml2html theme for rendering RAML to Markdown.
 
 ## Install
 ```
