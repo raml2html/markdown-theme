@@ -1,13 +1,16 @@
 {
   "name": "raml2html-markdown-theme",
   "description": "A raml2html template for rendering RAML to Markdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Kevin Renskers",
     "email": "kevin@mixedcase.nl"
   },
   "bugs": {
     "url": "https://github.com/raml2html/markdown-theme/issues"
+  },
+  "dependencies": {
+    "nunjucks": "2.5.x"
   },
   "devDependencies": {
     "raml2html": "5.x"
