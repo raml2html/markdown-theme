@@ -12,9 +12,6 @@
   "dependencies": {
     "nunjucks": "2.5.x"
   },
-  "devDependencies": {
-    "raml2html": "5.x"
-  },
   "homepage": "https://github.com/raml2html/markdown-theme",
   "keywords": [
     "RAML", "raml2html-theme"
