@@ -1,0 +1,17 @@
+{{item.code}}:
+{% if item.description %}
+- {{item.description}}
+{% endif %}
+{% if item.headers.length %}
+-  Headers:
+{% for b in item.headers %}
+   - {% include "./item.nunjucks" %}
+{% endfor %}
+{% endif %}
+{% if item.body.length %}
+-  Body:
+{% for b in item.body %}
+   - {{ b.key }}
+   - {{ b.type }}
+{% endfor %}
+{% endif %}

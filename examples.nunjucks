@@ -1,0 +1,16 @@
+{% if parent.examples.length %}
+- {{'Example:' if parent.examples.length == 1 else 'Examples:'}}
+{% for example in parent.examples %}
+{% if example.displayName or example.description %}
+{% if example.displayName %}
+{{example.displayName}}:
+{% endif %}
+{% if example.description %}
+{{example.description}}
+{% endif %}
+{% endif %}
+  ~~~~
+  {{example.value}}
+  ~~~~
+{% endfor %}
+{% endif %}
