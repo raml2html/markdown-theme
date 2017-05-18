@@ -1,10 +1,47 @@
-{% if (resource.methods or (resource.description and resource.parentUrl)) %}
-### {{ resource.parentUrl }}{{ resource.relativeUri }}
-{% if resource.parentUrl %}{{ resource.description }}{% endif %}
-{% for method in resource.methods %}
-* **{{ method.method}}**{% if method.securedBy %} *(secured)*{% endif %}: {{ method.description }}
-{%- endfor -%}
+#### URI: {{ resource.parentUrl }}{{ resource.relativeUri }}
+{% if resource.is %}
+{% for is in resource.is %}
+{% if is %}
+{% set ist = traits[is] %}
+{% if ist %}
+  - {{ist.description}}
+{% for head in ist.headers %}
+    - {{head.displayName}}: {{head.type}}{% if head.required %} (required){% endif %}
+{% endfor %}
 {% endif %}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% for method in resource.methods %}
+##### Method:
+{{ method.method}}
+##### Description:
+{{ method.description }}
+##### Secured by:
+{% for securedBy in method.securedBy %}
+{% if securedBy %}
+{% set securityScheme = securitySchemes[securedBy.schemeName] %}
+- {{securityScheme.displayName}}
+  - {{securityScheme.description}}
+{% for head in securityScheme.describedBy.headers %}
+    - {{head.displayName}}: {{head.type}}{% if head.required %} (required){% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+##### Request:
+###### URI Parameters:
+{% for item in resource.allUriParameters %}
+{% include "./item.nunjucks" %}
+{% endfor %}
+###### Query Parameters:
+{% for item in method.queryParameters %}
+{% include "./item.nunjucks" %}
+{% endfor %}
+##### Response:
+{% for item in method.responses %}
+{% include "./response.nunjucks" %}
+{% endfor %}
+{%- endfor -%}
 
 {% for resource in resource.resources %}
 {% include "./resource.nunjucks" %}
