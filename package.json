@@ -1,6 +1,6 @@
 {
   "name": "raml2html-markdown-theme",
-  "description": "A raml2html template for rendering RAML to Markdown",
+  "description": "A raml2html theme for rendering RAML to Markdown",
   "version": "1.0.1",
   "author": {
     "name": "Kevin Renskers",
