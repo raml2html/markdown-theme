@@ -9,7 +9,7 @@ npm i -g raml2html-markdown-theme
 
 ## Usage
 ```
-raml2html --theme raml2html-markdown-theme example.raml > example.html
+raml2html --theme raml2html-markdown-theme example.raml > example.md
 ```
 
 ## License
